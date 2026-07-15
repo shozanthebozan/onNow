@@ -1,3 +1,5 @@
+# v0.0.3
+### A few visual cleanups & adjustments
 # v0.0.2
 ### This now shows the weather of the location accociated with your ip address.
 # v0.0.1
