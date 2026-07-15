@@ -1,3 +1,5 @@
+# v0.0.4
+### Removing version number from title;instead putting in __version__ variable and displaying at bottom-right of program.
 # v0.0.3
 ### A few visual cleanups & adjustments
 # v0.0.2
