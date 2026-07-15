@@ -11,7 +11,7 @@ Title.place(anchor="center",relx=0.5,rely=0.1)
 weather_result=ttk.Label(root)
 weather_result.place(anchor="w",rely=0.5,relx=0.1)
 def weatherFind():
-    weather=requests.get("https://wttr.in/Melbourne?format=2")
+    weather=requests.get("https://wttr.in/?format=2")
     global weatherg
     weather=weather.text.strip()
     clean_text = weather.replace("\ufe0f", "")
