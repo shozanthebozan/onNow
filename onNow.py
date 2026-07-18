@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import requests
-__version__="v0.0.4"
+__version__="v0.0.5"
 root=tk.Tk()
 root.geometry('500x200')
 root.title("onNow")
@@ -14,11 +14,8 @@ def weatherFind():
     weather=requests.get("https://wttr.in/?format=2")
     global weatherg
     weather=weather.text.strip()
-    clean_text = weather.replace("\ufe0f", "")
-    cleaner_text=clean_text.replace("+", "")
-    cleanest_text=cleaner_text.replace("🌬", ", & wind").replace("☁", "☁,").replace("→", " up to ")
-    
-    weatherg = cleanest_text
+    clean_text = weather.replace("\ufe0f", "").replace("🌬", ", & wind direction & speed is ").replace("☁", "☁,").replace("→", " up to ").replace("+", "")    
+    weatherg = clean_text
     weather_result.config(text=f"Sky={weatherg}")
     
     
@@ -26,7 +23,7 @@ def weatherFind():
     
 weather_get=tk.Button(root, text="Get weather",command=weatherFind,bg="light slate grey")
 weather_get.place(anchor="w",relx=0.1,rely=0.3) 
-version_label=tk.Label(root,text=f"{__version__}",bg="light slate grey")
+version_label=tk.Label(root,text=f"{__version__}",bg="dark slate grey")
 version_label.place(anchor="se",rely=1.0,relx=1.0)
 
 root.mainloop()
