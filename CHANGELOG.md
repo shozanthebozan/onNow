@@ -1,3 +1,5 @@
+# v0.0.5
+### Cleaning up useless variables & one minor colour change-just made the version number label match the backround colour
 # v0.0.4
 ### Removing version number from title;instead putting in __version__ variable and displaying at bottom-right of program.
 # v0.0.3
