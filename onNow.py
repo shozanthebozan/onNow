@@ -22,23 +22,40 @@ def weatherFind():
     extra=requests.get("https://v2.wttr.in")
     extrac=extra.text.strip()
     extracclean=extrac.replace("\ufe0f", "").split("\n")
-    weather.placehold=""
-    timezone.placehold=""
+    weather_placehold=""
+    timezone_placehold=""
+    now_placehold=""
+    weatherReport_placehold=""
+    sunrise_placeholder = "" 
+    sunset_placeholder = ""
     # keep making these placeholder variables and then add em to for like if "Weather:" in line:
                                                                             # weather_placehold = line.strip()
     for line in extracclean:
-        if "Weather:" in line:
-            line=(line.strip())
-        elif "Timezone:" in line:
-            print(line.strip())
-        elif "Now  :" in line:
-            print(line.strip())
-        elif "Weather report:" in line:
-            print(line.strip())
+            # 1. Strip whitespace and skip empty lines
+            cleaned_line = line.strip()
+            if not cleaned_line:
+                continue
+                
+            # 2. Skip structural borders explicitly (without matching normal text hyphens)
+            if "─" in cleaned_line or "┌" in cleaned_line or "┐" in cleaned_line or "└" in cleaned_line or "┘" in cleaned_line:
+                continue
+
+            # 3. Extract the data you actually want
+            if "Weather:" in cleaned_line:
+                weather_placeholder = cleaned_line
+            elif "Timezone:" in cleaned_line:
+                timezone_placeholder = cleaned_line
+            elif "Now :" in cleaned_line:
+                now_placeholder = cleaned_line
+            elif "Weather report:" in cleaned_line:
+                weatherReport_placeholder = cleaned_line
+            elif "Sunrise:" in cleaned_line:
+                sunrise_placeholder = cleaned_line
+            elif "Sunset:" in cleaned_line:
+                sunset_placeholder = cleaned_line
     
-    
-    
-    print(f"{extracclean}")
+    print(f"{sunrise_placeholder}")
+    print(f"{sunset_placeholder}")
     
     
     
