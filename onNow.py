@@ -11,7 +11,7 @@ Title.place(anchor="center",relx=0.5,rely=0.1)
 weather_result=tk.Label(root,bg="light slate grey")
 weather_result.place(anchor="w",rely=0.5,relx=0.1)
 weather_result_sun=tk.Label(root,bg="light slate grey")
-weather_result_sun.place(anchor="w",rely=0.6,relx=0.1)
+weather_result_sun.place(anchor="w",rely=0.8,relx=0.1)
 def weatherFind():
     weather=requests.get("https://wttr.in/?format=2")
     global weatherg
@@ -28,19 +28,14 @@ def weatherFind():
     weatherReport_placehold=""
     sunrise_placeholder = "" 
     sunset_placeholder = ""
-    # keep making these placeholder variables and then add em to for like if "Weather:" in line:
-                                                                            # weather_placehold = line.strip()
+    
     for line in extracclean:
-            # 1. Strip whitespace and skip empty lines
             cleaned_line = line.strip()
             if not cleaned_line:
                 continue
                 
-            # 2. Skip structural borders explicitly (without matching normal text hyphens)
             if "─" in cleaned_line or "┌" in cleaned_line or "┐" in cleaned_line or "└" in cleaned_line or "┘" in cleaned_line:
                 continue
-
-            # 3. Extract the data you actually want
             if "Weather:" in cleaned_line:
                 weather_placeholder = cleaned_line
             elif "Timezone:" in cleaned_line:
@@ -54,9 +49,10 @@ def weatherFind():
             elif "Sunset:" in cleaned_line:
                 sunset_placeholder = cleaned_line
     
-    print(f"{sunrise_placeholder}")
-    print(f"{sunset_placeholder}")
-    
+    sunset_placeholder=sunset_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","")
+    sunrise_placeholder=sunrise_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","")
+    sunrise_placeholder2 = sunrise_placeholder.split("|", 1)[1]
+    weather_result_sun.config(text=f"{sunrise_placeholder2}\n{sunset_placeholder}")
     
     
     
