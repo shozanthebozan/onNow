@@ -1,5 +1,7 @@
-# v0.0.6
-### Dawn, zenith, dusk, sunset and sunrise are now shown in v0.0.6. There also is a CLI version now.
+# v0.0.6-2
+###  There also is a CLI version now.
+# v0.0.6-1
+### Dawn, zenith, dusk, sunset and sunrise are now shown in v0.0.6.
 # v0.0.5
 ### Cleaning up useless variables & one minor colour change-just made the version number label match the backround colour
 # v0.0.4
