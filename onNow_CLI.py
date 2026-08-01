@@ -1,15 +1,15 @@
 import requests
-__Version__="v0.0.6"
+__Version__="v0.1.0"
 def weatherFind():
     weather=requests.get("https://wttr.in/?format=2")
     global weatherg
     weather=weather.text.strip()
-    clean_text = weather.replace("\ufe0f", "").replace("🌬", ", & wind direction & speed is ").replace("☁", "☁,").replace("→", " up to ").replace("+", "")    
+    clean_text = weather.replace("\ufe0f", "").replace("🌬", ", & wind direction & speed is ").replace("☁", "☁,").replace("+", "")  
     weatherg = clean_text
     extra=requests.get("https://v2.wttr.in")
     extrac=extra.text.strip()
     extracclean=extrac.replace("\ufe0f", "").split("\n")
-    print(f"Sky={weatherg}\n")
+    print(f"Sky = {weatherg}")
     weather_placehold=""
     timezone_placehold=""
     now_placehold=""
@@ -35,10 +35,17 @@ def weatherFind():
                 sunrise_placeholder = cleaned_line
             elif "Sunset:" in cleaned_line:
                 sunset_placeholder = cleaned_line
-    sunset_placeholder=sunset_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","")
-    sunrise_placeholder=sunrise_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","")
+    sunset_placeholder=sunset_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","").replace("   : ",": ").replace("      |"," | ")
+    sunrise_placeholder=sunrise_placeholder.replace("\ufe0f", "").replace("\x1b", "").replace("\033", "").replace("[2m","").replace("[0m","").replace("  : ",": ")
     sunrise_placeholder2 = sunrise_placeholder.split("|", 1)[1]
     print(f"{sunrise_placeholder2}\n{sunset_placeholder}")
+def newsget():
+    headers = {"User-Agent": "curl/7.81.0"}
+    news = requests.get("http://getnews.tech", headers=headers)
+    print(f"{news.text}")
+
 
 if __name__ == "__main__":
     weatherFind()
+    newsget()
+   
