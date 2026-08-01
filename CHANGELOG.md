@@ -1,3 +1,5 @@
+# v0.1.0-1
+### Adding news to onNow_CLI, just I think there's way too many articles I'll find a way to limit to 4, and I will also try to add news to GUI version. Also the news is from `http://getnews.tech`.
 # v0.0.6-2
 ###  There also is a CLI version now.
 # v0.0.6-1
@@ -9,6 +11,6 @@
 # v0.0.3
 ### A few visual cleanups & adjustments
 # v0.0.2
-### This now shows the weather of the location accociated with your ip address.
+### This now shows the weather of the location associated with your ip address.
 # v0.0.1
-### This is the first release & allows you to get the weather report for melbourne, victoria, australia right in tkinter. Next I will add opion to select another place.
+### This is the first release & allows you to get the weather report for Melbourne, Victoria, Australia right in tkinter. Next I will add an option to select another place.
