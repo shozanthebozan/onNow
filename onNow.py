@@ -1,5 +1,5 @@
 import requests
-__Version__="v0.0.6"
+__Version__="v0.1.0"
 def weatherFind():
     weather=requests.get("https://wttr.in/?format=2")
     global weatherg
@@ -40,8 +40,13 @@ def weatherFind():
     sunrise_placeholder2 = sunrise_placeholder.split("|", 1)[1]
     print(f"{sunrise_placeholder2}\n{sunset_placeholder}")
 
+def newsget():
+    headers = {"User-Agent": "curl/7.81.0"}
+    news = requests.get("http://getnews.tech", headers=headers)
+    print(f"{news.text}")
 
 if __name__ == "__main__":
     weatherFind()
+    newsget()
 
    
