@@ -1,3 +1,5 @@
+# v0.1.0-2
+### `getnews.tech` went back up, so I put it back in the CLI version
 # v0.1.0-1
 ### Adding news to onNow_CLI, just I think there's way too many articles I'll find a way to limit to 4, and I will also try to add news to GUI version. Also the news is from `http://getnews.tech`.
 # v0.0.6-2
